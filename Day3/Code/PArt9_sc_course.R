@@ -7,10 +7,14 @@ library(dplyr)
 library(ggplot2)
 library(patchwork)
 library(plyr)
+# BiocManager::install("SingleR")
 library(SingleR)
+# BiocManager::install("celldex")
 library(celldex)
 library(SummarizedExperiment)
+# BiocManager::install("scmap")
 library(scmap)
+# install.packages('SCINA')
 library(SCINA)
 library(SeuratDisk)
 
@@ -142,6 +146,6 @@ write.csv(counts, "~/Desktop/pbmc_counts.csv",quote = F)
 #conda activate celltypist310  
 #celltypist -i ~/Desktop/pbmc_counts.csv --model Immune_All_High.pkl --outdir ~/Desktop/   
 
-  
+
 pbmc$celltype_celltypist <- read.csv("~/Desktop/predicted_labels.csv")$predicted_labels
 p5 <- DimPlot(pbmc, group.by = "celltype_celltypist", label = TRUE) + ggtitle("Celltypyst")

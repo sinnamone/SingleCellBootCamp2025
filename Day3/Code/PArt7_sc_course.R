@@ -3,12 +3,15 @@ library(Seurat)
 library(dplyr)
 library(SeuratData)
 # Enrichment analysis
+# BiocManager::install("clusterProfiler")
 library(clusterProfiler)
+#BiocManager::install("org.Hs.eg.db")
 library(org.Hs.eg.db)     # For human genes
 library(enrichplot)
+#install.packages("msigdbr")
 library(msigdbr)          # Optional: MSigDB collections
 library(ggplot2)
-#install.packages("msigdbr")
+
 
 
 # ---------------------------------------------
@@ -125,4 +128,3 @@ if (!is.null(emsig) && nrow(emsig) > 0) {
 #   write.csv(as.data.frame(ekegg), file = file.path(outdir, paste0("cluster_", cl, "_KEGG.csv")), row.names = FALSE)
 # }
 }
-
